@@ -1,0 +1,95 @@
+{% extends 'recipe/base.html' %}
+
+
+    {% block content %}
+    <h1> Mes ingrédients </h1>
+    {% for ingredient in ingredients_app%}
+
+    <!-- 
+    <div class="card" style="width: 18rem;">
+  
+        <div class="card-body">
+            <h5 class="card-title"> {{ingredient.name}} </h5>
+            <p class="card-text">{{ingredient.famille}}</p>
+            <p class="card-text">energie en (kj / 100g) : {{ingredient.energie_kJ}}</p>
+            <p class="card-text">energie en (kcal / 100g) : {{ingredient.energie_kcal}}</p>
+            <a href={% url 'ingredients-detail' ingredient.pk%} class="card-link">voir details ingredients</a>
+        </div>
+    </div>
+
+    
+    {%endfor%}
+
+    {% if is_paginated %}
+    <div class="pagination">
+        <span class="page-links">
+            {% if page_obj.has_previous %}
+                <a href="/ingredients?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+            <span class="page-current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+            {% if page_obj.has_next %}
+                <a href="/ingredients?page={{ page_obj.next_page_number }}">next</a>
+            {% endif %}
+        </span>
+    </div>
+    {% endif %} 
+
+    -->
+
+    <div class="container">
+                
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"> Ingrédient </th>
+                            <th scope="col"> modifier </th>
+                            <th scope="col"> dupliquer </th>
+                            <th scope="col"> supprimer </th>
+                            <th scope="col"> voir détails </th>
+
+                        </tr>
+            
+                    </thead>
+
+                    <tbody>    
+
+{% for ingredient in ingredients_app%}   
+
+                        <tr>
+                            <td> {{ingredient.name}} </td>     
+   
+                            <td> <a class="btn btn-outline-info" href="{% url 'ingredients-update' ingredient.id %}">Modifier</a></td>   
+                            <td> <a class="btn btn-outline-danger" href="{% url 'ingredients-delete' ingredient.id %}">Supprimer</a>  </td>
+                            <td> <a href={% url 'ingredients-detail' ingredient.pk%} class="card-link">voir details</a> </td>
+
+                            <td> Duppliquer </td>  
+
+   
+                        </tr>
+         
+    {%endfor%}
+                    </tbody>
+                </table>
+
+    {% if is_paginated %}        
+    
+    <div class="pagination">
+        <span class="page-links">
+            {% if page_obj.has_previous %}
+                <a href="/ingredients?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+            <span class="page-current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+            {% if page_obj.has_next %}
+                <a href="/ingredients?page={{ page_obj.next_page_number }}">next</a>
+            {% endif %}
+        </span>
+    </div>
+                
+    {% endif %}
+    {% endblock content%}

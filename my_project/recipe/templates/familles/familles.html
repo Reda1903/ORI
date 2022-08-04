@@ -1,0 +1,56 @@
+{% extends 'recipe/base.html' %}
+
+
+    {% block content %}
+    <h1> Mes Familles d'ingrédients </h1>
+    <div class="container">
+                
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"> Familles</th>
+                            <th scope="col"> modifier </th>
+                            <th scope="col"> dupliquer </th>
+                            <th scope="col"> supprimer </th>
+
+                        </tr>
+            
+                    </thead>
+
+                    <tbody>     
+    {% for famille in familles_app %}        
+                        <tr>
+                            <td> {{famille.name}} </td>     
+   
+                            <td> modifier </td>   
+                            <td> duppliquer </td>
+
+                            <td> supprimer </td>  
+
+   
+                        </tr>
+
+        <!--
+        <div class="card" style="width: 18rem;">
+  
+                    <div class="card-body">
+                        <h5 class="card-title"> {{famille.name}} </h5>
+                        <a href={% url 'familles-detail' famille.pk%} class="card-link">voir details famille</a>
+                    </div>
+                </div>
+                
+    -->            
+    {%endfor%}
+                    </tbody>
+                </table>
+
+
+   
+
+
+
+
+
+    {% endblock content%}

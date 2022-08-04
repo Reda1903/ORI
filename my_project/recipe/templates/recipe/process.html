@@ -1,0 +1,90 @@
+{% extends 'Recipe/base.html' %}
+{% block content%}
+{%load crispy_forms_tags%}
+
+
+<form id="pet_form"  action="{% url 'create_recipe_process' pk %}" method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+<!-- {{ form | crispy }}-->    
+  
+    {{ formset.management_form }}
+    {% for form in formset %}
+
+
+
+    <div class="image-form d-flex justify-content-between"  id="recipeForm"  >
+
+        {{form.step}}
+        <button class="align-self-center btn btn-danger delete-image-form">supprimer</button>
+    </div>
+
+
+    {% endfor %}
+
+
+    <input type="submit" class="btn btn-primary my-3" value="Terminer" name='terminerBttn'/>  </button>
+    <button id="add-image-form" class="btn btn-primary my-3">ajouter une nouvelle etape</button>
+    <input type="hidden" name="counter_newid" value="3" id="id_counter_new_id">
+  
+</form>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+    <script>
+    
+    const imageForm = document.getElementsByClassName("image-form");
+    const mainForm = document.querySelector("#pet_form");
+    const addImageFormBtn = document.querySelector("#add-image-form");
+    const submitFormBtn = document.querySelector('[type="submit"]');
+    const totalForms = document.getElementById("id_process_recipe-TOTAL_FORMS");
+    
+    const counterID = document.getElementById("id_counter_new_id");
+    
+    function updateForms() {
+        let formCount = imageForm.length ;
+        let count = 0;
+        for (let form of imageForm) {
+            const formRegex = RegExp(`process_recipe-(\\d){1}-`, 'g');
+            form.innerHTML = form.innerHTML.replace(formRegex, `process_recipe-${count++}-`)
+        }
+    }
+    
+    addImageFormBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        //let formCount = imageForm.length ;
+        const count = imageForm.length
+        const formCount = parseInt(counterID.getAttribute('value')) + 1 ;
+        const newImageForm = imageForm[0].cloneNode(true);
+        const formRegex = RegExp(`process_recipe-(\\d){1}-`, 'g');
+    
+        newImageForm.innerHTML = newImageForm.innerHTML.replace(formRegex, `process_recipe-${formCount}-`);
+        mainForm.insertBefore(newImageForm, submitFormBtn);
+        //totalForms.setAttribute('value', imageForm.length);
+        totalForms.setAttribute('value', 100);
+        counterID.setAttribute('value', formCount);
+    
+    });
+    
+    mainForm.addEventListener("click", function (event) {
+        let formCount = imageForm.length ;
+        const formCount2 = parseInt(counterID.getAttribute('value')) + 1 ;
+
+        if (event.target.classList.contains("delete-image-form")) {
+            event.preventDefault();
+            event.target.parentElement.remove();
+            //formCount--;
+            //updateForms();
+
+            //totalForms.setAttribute('value', imageForm.length);
+            totalForms.setAttribute('value', 100);
+        }
+    });
+    </script>
+    
+    
+    
+
+    
+    
+{% endblock %}
