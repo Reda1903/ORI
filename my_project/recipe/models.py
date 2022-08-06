@@ -43,9 +43,9 @@ class Forme(models.Model):
         #return reverse("familles-detail", kwargs={"pk": self.pk})
     
 class Ingredient(models.Model):
-    name = models.CharField(max_length=100)
     famille = models.ForeignKey(Famille, on_delete=models.CASCADE, related_name="famille_ingredient", null=True)
-    forme = models.ForeignKey(Forme, on_delete=models.CASCADE, related_name="forme_ingredient", null=True)
+    forme = models.ForeignKey(Forme, on_delete=models.CASCADE, related_name="forme_ingredient", null=True, verbose_name='ingrédient')
+    name = models.CharField(max_length=100, verbose_name='forme')
     energie_kJ = models.FloatField(null= True)
     energie_kcal = models.FloatField(null= True)
     sodium = models.FloatField(null= True)

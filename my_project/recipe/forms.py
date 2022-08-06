@@ -20,6 +20,13 @@ class IngredientForm(forms.ModelForm):
     class Meta:
         model = IngredientRecipe
         exclude = ('recipe',)
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['forme'].label = 'ingredient'
+        self.fields['name'].label = 'forme'
+
+
 
 
     
@@ -42,7 +49,7 @@ class IngredientForm(forms.ModelForm):
         #elif self.instance.pk:
         #    self.fields['ingredient'].queryset = self.instance.famille.famille_ingredient.order_by('name')
 
-IngredientFormSet = forms.inlineformset_factory(Recipe, IngredientRecipe, form=IngredientForm)
+IngredientFormSet = forms.inlineformset_factory(Recipe, IngredientRecipe, form=IngredientForm, extra=0)
 
 class ProcessForm(forms.ModelForm):
     step = forms.CharField(widget=forms.Textarea)

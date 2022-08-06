@@ -15,6 +15,24 @@ df = pd.read_excel('./Table Ciqual.xlsx')
 # Do required pre-processing on panda dataframe 
 # such as data cleaning, data format settings etc..
 
+
+
+familles_opt= ['aides culinaires et ingrédients divers',
+ 'produits céréaliers',
+ 'viandes, œufs, poissons et assimilés', 
+ 'fruits, légumes, légumineuses et oléagineux',
+  'produits laitiers et assimilés', 
+   'eaux et autres boissons', ]
+   
+ingredients_opt = ['eaux et autres boissons', 'algues', 'biscuits apéritifs', 'boisson alcoolisées', 
+'boissons sans alcool', 'condiments', 'crèmes et spécialités à base de crème', 'denrées destinées à une alimentation particulière', 
+'épices', 'fromages et assimilés', 'fruits', 'fruits à coque et graines oléagineuses', 'herbes', 'ingrédients divers'
+'laits', 'légumes', 'légumineuses', 'oeufs', 'pains et assimilés', 'pâtes, riz et céréales', 
+'produits laitiers frais et assimilés', 'sels'
+ ]
+#formes_opt = ['']
+
+
 # Iterater throught panda dataframe and save data in Django model
 names= []
 for index, row in df.iterrows():
@@ -37,6 +55,7 @@ for index, row in df.iterrows():
 names= []
 for index, row in df.iterrows():
     forme = Forme()
+
     #print(row['alim_grp_nom_fr'])
     forme.famille = Famille.objects.filter(name = row['alim_grp_nom_fr'])[0]
     row = row['alim_ssgrp_nom_fr']
@@ -45,6 +64,7 @@ for index, row in df.iterrows():
     if row == "" or row == "nan" or row == "-":
         #row = "Non défini"
       print(row)
+
 
     if row not in names :
       forme.name = row
@@ -58,8 +78,10 @@ for index, row in df.iterrows():
 
     ingredient = Ingredient()
       # Normal Fields ( Non-foreign key fields) adding
-     
+
     ingredient.name = row['alim_nom_fr']
+    #print(row['alim_grp_nom_fr'])
+    print(row['alim_ssgrp_nom_fr'])
     ingredient.famille = Famille.objects.filter(name = row['alim_grp_nom_fr'])[0]
     ingredient.forme = Forme.objects.filter(name = row['alim_ssgrp_nom_fr'])[0]
     ingredient.energie_kJ = row['Energie. Règlement UE N° 1169/2011 (kJ/100 g)']
@@ -143,7 +165,7 @@ for index, row in df.iterrows():
 
     ingredient.save()
 
-  
+
 '''
     #KJ
 

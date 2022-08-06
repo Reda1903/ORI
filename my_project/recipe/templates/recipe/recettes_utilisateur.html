@@ -1,0 +1,65 @@
+{% extends 'recipe/base.html' %}
+
+{%load static%}
+
+
+
+    {% block content %}
+    <h1> Mes recettes </h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"> nom de la recette</th>
+                <th scope="col"> modifier </th>
+                <th scope="col"> dupliquer </th>
+                <th scope="col"> telecharger  </th>
+                <th scope="col"> supprimer </th>
+                <th scope="col"> date création </th>
+                <th scope="col"> date modif </th>
+            </tr>
+
+        </thead>
+        <tbody> 
+
+            {% for recipe in recipes%}
+
+            {% if recipe.author == user %}  
+            
+            <tr>
+                <th scope="col"><a href={% url 'recettes-detail' recipe.pk%} class="card-link">{{recipe.title}}</a> </th>   
+                <td> <a class="btn" href="{% url 'recettes-update' recipe.id %}"> Modifer </a> </td>
+                <td> dupliquer </td>
+                <td><a class="btn" href="{% url 'pdf_recipe' pk=recipe.id %}"> Télécharger </a></td>
+                <td><a class="btn" href="{% url 'recettes-delete' recipe.id %}"> Supprimer </a></td>
+                <td> {{recipe.title}} </td>
+                <td> {{recipe.title}} </td>
+
+                <!--
+    <div class="card" style="width: 18rem;">
+  
+        <div class="card-body">
+            <h5 class="card-title"> {{recipe.title}} </h5>
+            <p class="card-text">{{recipe.description}}</p>
+ 
+            <h6 class="card-subtitle mb-2 text-muted"> temps de cuisson : {{recipe.cook_time}} </h6>
+            <a href={% url 'recettes-detail' recipe.pk%} class="card-link">voir recette</a>
+        </div>
+    </div>
+
+-->
+            </tr>
+
+            {%endif%}
+            {%endfor%}
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+    {% endblock content%}

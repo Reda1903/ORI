@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config 
 import os
+import django_heroku 
+
+from yaml import MarkedYAMLError
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,16 +24,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-brwigi4_f_%wbt*z7)&(#79$pbgh9yp^l#$#9gxicm$m@ljt#b'
+SECRET_KEY = config('SECRET_KEY')
+print(SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # During development only
 
 
-ALLOWED_HOSTS = ['135.125.107.100']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -126,14 +131,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/staticfiles/'
 
 MEDIA_URL = ' /images/'
 
-STATICFILES_DIR = [
-    os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
 ]
+#STATICFILES_DIR = [
+#   os.path.join(BASE_DIR, 'recipe')
+#]
 
+#MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'my_project/my_project')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -143,3 +152,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'recipe-home'
 LOGIN_URL = 'user-login'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+#activate django heroku
+django_heroku.settings(locals())

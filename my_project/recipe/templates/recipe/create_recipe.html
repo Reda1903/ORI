@@ -58,7 +58,7 @@
 <!--
     <div id="empty-form" class="">{{ formset.empty_form.famille}}</div>-->
 
-    <input type="submit"   value="Passer au processus de preparation" name='terminerBttn'/>  </button>
+    <input type="submit" class="btn btn-primary my-3"  value="Passer au processus de preparation" name='terminerBttn'/>  </button>
     <button id="add-image-form" class="btn btn-primary my-3">ajouter un nouvel ingrédient</button>
     <input type="hidden" name="counter_newid" value="3" id="id_counter_new_id">
 </form>
@@ -218,7 +218,7 @@ for (let i = 0; i < imageForm.length; i++) {
             const formRegex2 = '#' + 'id_ingredients_recipe-' + i + '-ingredient'
             const id1 = $(formRegex1)
             const id2 = $(formRegex2)
-            id1.change(function () {
+            id1.click(function () {
                 console.log("Test Change ingredient");
                 const url = $("#recipeForm").attr("data-ingredients-url");  // get the url of the `load_cities` view
                 const formeId = $(this).val();  // get the selected country ID from the HTML input

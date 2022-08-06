@@ -979,6 +979,7 @@ def update_recipe2(request, pk) :
         recipe_instance.save(update_fields=['title'])
 
         formset = IngredientFormSet(request.POST, instance=recipe_instance)
+        #formset = IngredientFormSet(request.POST)
 
             
         #if formset.is_valid():
@@ -1015,6 +1016,7 @@ def update_process(request, pk) :
         #    print(request.POST)
         #    print(" form is valid ")
         formset = ProcessFormSet(request.POST, instance=recipe_instance)
+        #formset = ProcessFormSet(request.POST)
             
         #if formset.is_valid():
         print(" form of formset is valid ")
