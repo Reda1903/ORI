@@ -1,55 +1,47 @@
 {% extends 'recipe/base.html' %}
-
+    {%block back%} 
+    {%url "recipe-home" %}
+    {%endblock back%}
 
     {% block content %}
-    <h1> Mes ingrédients </h1>
-    {% for ingredient in ingredients_app%}
+    <h1> Les ingrédients </h1>
 
-    <!-- 
-    <div class="card" style="width: 18rem;">
-  
-        <div class="card-body">
-            <h5 class="card-title"> {{ingredient.name}} </h5>
-            <p class="card-text">{{ingredient.famille}}</p>
-            <p class="card-text">energie en (kj / 100g) : {{ingredient.energie_kJ}}</p>
-            <p class="card-text">energie en (kcal / 100g) : {{ingredient.energie_kcal}}</p>
-            <a href={% url 'ingredients-detail' ingredient.pk%} class="card-link">voir details ingredients</a>
+    <form action="" method="post">
+
+        Barre de Recherche : 
+        {% csrf_token %}
+
+
+        <div>
+            <input class="form-control" list ="ingredients_list" type="text" id='search_item' placeholder='chercher ingredient' aria-label='search' name='search' style='width:40%; display: inline-block'>
+            <input class="btn-secondary" id="search_button" type="submit" name="search_button" value="Chercher" style="display: inline-block">
+            <datalist id="ingredients_list">
+
+            {% for ingredient in ingredients_list %}
+            <option value="{{ingredient.name}}"> </option>
+            {% endfor %}
+            </datalist>    
+
         </div>
-    </div>
+        <br>
+        
 
+    </form>
     
-    {%endfor%}
+  
 
-    {% if is_paginated %}
-    <div class="pagination">
-        <span class="page-links">
-            {% if page_obj.has_previous %}
-                <a href="/ingredients?page={{ page_obj.previous_page_number }}">previous</a>
-            {% endif %}
-            <span class="page-current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-            </span>
-            {% if page_obj.has_next %}
-                <a href="/ingredients?page={{ page_obj.next_page_number }}">next</a>
-            {% endif %}
-        </span>
-    </div>
-    {% endif %} 
-
-    -->
-
-    <div class="container">
+    <div class="table-responsive-sm">
                 
 
 
-                <table class="table">
+                <table class="table table-striped table-secondary">
                     <thead>
                         <tr>
                             <th scope="col"> Ingrédient </th>
                             <th scope="col"> modifier </th>
-                            <th scope="col"> dupliquer </th>
-                            <th scope="col"> supprimer </th>
+                            <th scope="col"> supprimer</th>
                             <th scope="col"> voir détails </th>
+                            <th scope="col"> dupliquer</th>
 
                         </tr>
             
@@ -57,7 +49,8 @@
 
                     <tbody>    
 
-{% for ingredient in ingredients_app%}   
+{% for ingredient in ingredients%}   
+
 
                         <tr>
                             <td> {{ingredient.name}} </td>     
@@ -66,7 +59,22 @@
                             <td> <a class="btn btn-outline-danger" href="{% url 'ingredients-delete' ingredient.id %}">Supprimer</a>  </td>
                             <td> <a href={% url 'ingredients-detail' ingredient.pk%} class="card-link">voir details</a> </td>
 
-                            <td> Duppliquer </td>  
+                            <td>                                 
+                                <form action="" method="post">
+
+                                    {% csrf_token %}
+            
+            
+                                    <div style='visibility:hidden; height:0'>
+                                        <select id="ingrdient_id" name="id">
+                                            <option value="{{ ingredient.id}}">{{ ingredient.name }}</option>
+                                        </select>    
+                                    </div>
+            
+                                    
+                                    <input class="btn" id="submit_button" type="submit" name="submit_id" value="Dupliquer">
+                                </form>
+                            </td>  
 
    
                         </tr>

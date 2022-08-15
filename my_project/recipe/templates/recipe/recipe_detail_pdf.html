@@ -97,273 +97,283 @@
     
     -->
 
-    <table id = 'Tableau nutritionnel' style="width:100%" class="table" bgcolor="rgba(239, 127, 0, 0.774)">
+    <h2> Détails de la recettes </h2>
+    <table id = 'Tableau nutritionnel' style="width:100%" class="table" bgcolor="rgba(255, 255, 255, 255)">
         <thead  bgcolor="white">
         <div bgcolor="white">
-            <caption> Tableau nutritionnel</caption>
+            <caption><h2>Tableau nutritionnel</h2></caption>
 
         </div>
 
         </thead>
         <tbody>             
             <tr>
-                <th scope="col"> Calories </th>   
+                <th scope="col"> Valeur énergétique (kJ/100 g)  </th>   
                 <td> {{total_calorie}} </td>     
             </tr>
             <tr>
-                <th scope="col"> Glucide </th>   
+                <th scope="col"> Valeur énergétique (kcal/100 g) </th>   
+                <td> {{total_calorie_kcal}} </td>     
+            </tr>
+            <tr>
+                <th scope="col"> Glucides (g/100 g) </th>   
                 <td> {{total_glucide}} </td>     
             </tr>
 
             
             <tr>
-                <th scope="col"> sodium </th>   
+                <th scope="col"> Sodium (mg/100 g) </th>   
                 <td> {{total_sodium}} </td>     
             </tr>
 
 
             <tr>
-                <th scope="col"> Proteins </th>   
+                <th scope="col"> Protéines (g/100 g) </th>   
                 <td> {{total_protein}} </td>     
             </tr>
 
             <tr>
-                <th scope="col">Fibres  </th>   
+                <th scope="col"> Fibres alimentaires (g/100 g)  </th>   
                 <td> {{total_fibre}} </td>     
             </tr>
             
 
             <tr>
-                <th scope="col"> Eau  </th>   
+                <th scope="col"> Eau (g/100 g)  </th>   
                 <td> {{total_eau}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> Lipides </th>   
+                <th scope="col"> Lipides (g/100 g) </th>   
                 <td> {{total_lipide}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> Sucres </th>   
+                <th scope="col"> Sucres (g/100 g) </th>   
                 <td> {{total_sucres}} </td>     
             </tr>
 
 
 
             <tr>
-                <th scope="col"> total_fructose  </th>   
+                <th scope="col"> Fructose (g/100 g)  </th>   
                 <td> {{total_fructose}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_galactose </th>   
+                <th scope="col"> Galactose (g/100 g) </th>   
                 <td> {{total_galactose}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_glucose </th>   
+                <th scope="col"> Glucose (g/100 g) </th>   
                 <td> {{total_glucose}} </td>     
             </tr>
             <tr>
-                <th scope="col"> total_maltose  </th>   
+                <th scope="col"> Maltose (g/100 g)  </th>   
                 <td> {{total_maltose}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_saccharose </th>   
+                <th scope="col"> Saccharose (g/100 g) </th>   
                 <td> {{total_saccharose}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_amidon </th>   
+                <th scope="col"> Amidon (g/100 g) </th>   
                 <td> {{total_amidon}} </td>     
             </tr>
 
-            <tr>
-                <th scope="col"> total_fibresAlimentaires </th>   
-                <td> {{total_fibresAlimentaires}} </td>     
-            </tr>
-
 
             <tr>
-                <th scope="col"> total_polyols  </th>   
+                <th scope="col"> Polyols totaux (g/100 g)  </th>   
                 <td> {{total_polyols}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_alcool </th>   
+                <th scope="col"> Alcool (g/100 g) </th>   
                 <td> {{total_alcool}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_acidesOrganiques </th>   
+                <th scope="col"> Acides organiques (g/100 g) </th>   
                 <td> {{total_acidesOrganiques}} </td>     
             </tr>
 
 
 
             <tr>
-                <th scope="col"> total_AGsatures  </th>   
+                <th scope="col"> AG saturés (g/100 g)  </th>   
                 <td> {{total_AGsatures}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_AGmonoinsature </th>   
+                <th scope="col"> AG monoinsaturés (g/100 g) </th>   
                 <td> {{total_AGmonoinsature}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_AGpolyinsature </th>   
+                <th scope="col"> AG polyinsaturés (g/100 g) </th>   
                 <td> {{total_AGpolyinsature}} </td>     
             </tr>
             <tr>
-                <th scope="col"> total_AGbutyrique  </th>   
+                <th scope="col"> AG 4:0, butyrique (g/100 g)  </th>   
                 <td> {{total_AGbutyrique}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_AGcaproique </th>   
+                <th scope="col"> AG 6:0, caproïque (g/100 g) </th>   
                 <td> {{total_AGcaprylique}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_AGcaprylique </th>   
+                <th scope="col"> AG 8:0, caprylique (g/100 g) </th>   
                 <td> {{total_AGcaprylique}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_AGlaurique  </th>   
+                <th scope="col"> AG 12:0, laurique (g/100 g)  </th>   
                 <td> {{total_AGlaurique}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_AGbutyrique </th>   
+                <th scope="col"> AG 4:0, butyrique (g/100 g) </th>   
                 <td> {{total_AGbutyrique}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_AGpalmitique </th>   
+                <th scope="col"> AG 16:0, palmitique (g/100 g) </th>   
                 <td> {{total_AGpalmitique}} </td>     
             </tr>
 
 
 
             <tr>
-                <th scope="col"> total_AGbstearique </th>   
+                <th scope="col"> AG 18:0, stéarique (g/100 g) </th>   
                 <td> {{total_AGbstearique}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_AGlinoleique </th>   
+                <th scope="col"> AG 18:2 9c,12c (n-6), linoléique (g/100 g) </th>   
                 <td> {{total_AGlinoleique}} </td>     
             </tr>
 
 
             <tr>
-                <th scope="col"> total_AGalphalinolenique </th>   
+                <th scope="col"> AG 18:3 c9,c12,c15 (n-3), alpha-linolénique (g/100 g) </th>   
                 <td> {{total_AGalphalinolenique}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_AGepa </th>   
+                <th scope="col"> AG 20:5 5c,8c,11c,14c,17c (n-3) EPA (g/100 g) </th>   
                 <td> {{total_AGepa}} </td>     
             </tr>
             <tr>
-                <th scope="col"> total_AGdha </th>   
+                <th scope="col"> AG 22:6 4c,7c,10c,13c,16c,19c (n-3) DHA (g/100 g) </th>   
                 <td> {{total_AGdha}} </td>     
             </tr>
 
 
             <tr>
-                <th scope="col"> total_cholesterol </th>   
+                <th scope="col"> Cholestérol (mg/100 g) </th>   
                 <td> {{total_cholesterol}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_selchlorure </th>   
+                <th scope="col"> Sel chlorure de sodium (g/100 g) </th>   
                 <td> {{total_selchlorure}} </td>     
             </tr>
             <tr>
-                <th scope="col"> total_calcium </th>   
+                <th scope="col"> Calcium (mg/100 g) </th>   
                 <td> {{total_calcium}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_cuivre </th>   
+                <th scope="col"> Cuivre (mg/100 g) </th>   
                 <td> {{total_cuivre}} </td>     
             </tr>
 
-            <th scope="col"> Fer  </th>   
+            <th scope="col"> Fer (mg/100 g)  </th>   
                 <td> {{total_fer}} </td>     
             </tr>
 
             </tr>
-                <th scope="col"> Iode  </th>   
+                <th scope="col"> Iode (µg/100 g)  </th>   
                 <td> {{total_iode}} </td>     
             </tr>
 
-            <th scope="col"> total_magnesium  </th>   
+            <th scope="col"> Magnésium (mg/100 g)  </th>   
                 <td> {{total_magnesium}} </td>     
             </tr>
 
             </tr>
-                <th scope="col"> total_manganese  </th>   
+                <th scope="col"> Manganèse (mg/100 g)  </th>   
                 <td> {{total_manganese}} </td>     
             </tr>
 
             </tr>
-                <th scope="col"> total_phosphore  </th>   
+                <th scope="col"> Phosphore (mg/100 g)  </th>   
                 <td> {{total_phosphore}} </td>     
             </tr>
 
             </tr>
-                <th scope="col"> total_potassium  </th>   
+                <th scope="col"> Potassium (mg/100 g)  </th>   
                 <td> {{total_potassium}} </td>     
             </tr>
 
 
             <tr>
-                <th scope="col"> Selenium  </th>   
+                <th scope="col"> Sélénium (µg/100 g)  </th>   
                 <td> {{total_selenium}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_zinc  </th>   
+                <th scope="col"> Zinc (mg/100 g)  </th>   
                 <td> {{total_zinc}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_retinol  </th>   
+                <th scope="col"> Rétinol (µg/100 g)  </th>   
                 <td> {{total_retinol}} </td>     
             </tr>
 
+            <tr>
+                <th scope="col"> Vitamine E (mg/100 g) </th>   
+                <td> {{total_vitamineE}} </td>     
+            </tr>
 
 
             <tr>
-                <th scope="col"> Vitamine K1 </th>   
+                <th scope="col"> Vitamine K1 (µg/100 g) </th>   
                 <td> {{total_VitamineK1}} </td>     
             </tr>
             <tr>
-                <th scope="col">Vitamine K2  </th>   
+                <th scope="col">Vitamine K2 (µg/100 g)</th>   
                 <td> {{total_vitamineK2}} </td>     
             </tr>
-                <th scope="col"> Vitamine B1  </th>   
+
+            <tr>
+                <th scope="col"> Vitamine B1 ou Thiamine (mg/100 g)  </th>   
                 <td> {{total_vitamineB1}} </td>     
             </tr>
+
             <tr>
-                <th scope="col">Vitamine B2  </th>   
+                <th scope="col">Vitamine B2 ou Riboflavine (mg/100 g)  </th>   
                 <td> {{total_vitamineB2}} </td>     
             </tr>
-                <th scope="col"> Vitamine B3  </th>   
+
+            <tr>
+                <th scope="col"> Vitamine B3 ou PP ou Niacine (mg/100 g)  </th>   
                 <td> {{total_vitamineB3}} </td>     
             </tr>
+
             <tr>
-                <th scope="col"> Vitamine B5  </th>   
+                <th scope="col"> Vitamine B5 ou Acide pantothénique (mg/100 g)  </th>   
                 <td> {{total_VitamineB5}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> Vitamine B9  </th>   
+                <th scope="col"> Vitamine B9 ou Folates totaux (µg/100 g) </th>   
                 <td> {{total_VitamineB9}} </td>     
             </tr>
 
@@ -373,49 +383,108 @@
             </tr>
 
             <tr>
-                <th scope="col"> total_sels_ajoutes B9  </th>   
+                <th scope="col"> Sels ajoutés (g/100 g)  </th>   
                 <td> {{total_sels_ajoutes}} </td>     
             </tr>
 
             <tr>
-                <th scope="col"> total_sucres_ajoutes </th>   
+                <th scope="col"> Sucres ajoutés (g/100 g) </th>   
                 <td> {{total_sucres_ajoutes}} </td>     
             </tr>
-
 
 
 
         </tbody>
     </table>
 
-
-
-        <br>           
-        <br>            
-        <table class="table" style="width:100%" bgcolor="rgba(239, 127, 0, 0.774)">
-            <caption>Allegations</caption>
+        
+        <table class="table" style="width:100%" ">
+            <caption><h2>Allegations nutritionnelles </h2></caption>
 
             <tbody>   
-            {% with i=0 %}
-            {% for alleg in allegation %}    
 
-                <tr>
-                    <th scope="col">
-                        allegation {{forloop.counter}}
-                    </th>   
+                {% for alleg in allegation %}    
+                    <tr>
+                        <th scope="col">
+                            allegation {{forloop.counter}}
+                        </th>   
 
-                    <td> {{alleg}}</td>     
-                </tr>
+                        <td> {{alleg}}</td> 
+                        {% for alleg_val in allegation_valeurs %}    
+                        {% if forloop.counter == forloop.parentloop.counter %}  
+                        <td> {{alleg_val}}</td>   
+                        {% endif %}
+                        {% endfor %}
 
-            {% endfor %}
-            {% endwith %}
+
+                    </tr>
+
+                {% endfor %}
+
             </tbody>
+
         </table>
-        <br>           
-        <br>     
-            <table class="table" style="width:100%" bgcolor="rgba(239, 127, 0, 0.774)">
+
+        
+        <table class="table" style="width:100%" >
+            <caption><h2>Allegations Minéraux</h2></caption>
+
+            <tbody>   
+                        {% for alleg in allegation_minerales %}    
+                        <tr>
+                            <th scope="col">
+                                allegation {{forloop.counter}}
+                            </th>   
+
+                            <td> {{alleg}}</td> 
+                            {% for alleg_val in allegation_minerales_valeurs %}    
+                            {% if forloop.counter == forloop.parentloop.counter %}  
+                            <td> {{alleg_val}}</td>   
+                            {% endif %}
+                            {% endfor %}
+
+
+                        </tr>
+
+                        {% endfor %}
+
+            </tbody>
+
+        </table>
+
+
+
+        <table class="table" style="width:100%" >
+            <caption><h2>Allegations Vitamines</h2></caption>
+
+            <tbody>   
+                            {% for alleg in allegation_vitamine %}    
+                            <tr>
+                                <th scope="col">
+                                    allegation {{forloop.counter}}
+                                </th>   
+    
+                                <td> {{alleg}}</td> 
+                                {% for alleg_val in allegation_vitamine_valeurs %}    
+                                {% if forloop.counter == forloop.parentloop.counter %}  
+                                <td> {{alleg_val}}</td>   
+                                {% endif %}
+                                {% endfor %}
+    
+    
+                            </tr>
+    
+                            {% endfor %}
+            </tbody>
+
+        </table>
+
+
+
+
+            <table class="table" style="width:100%">
                 <thead>            
-                    <caption>Recapitulatif ingredients </caption>
+                    <caption><h2>Recapitulatif ingredients</h2> </caption>
 
                     <tr>
                         <th scope="col"> Nom </th>
@@ -425,50 +494,67 @@
                     </tr>
         
                 </thead>
-                <tbody>  
-                    
-                {% for ingredient in ingredients %}
-                    <tr>
-                        <th scope="col"> {{ingredient}} </th>   
-                        <td> {{ingredient.quantity}} </td>     
-                        <td>
-                        </td>     
-                    </tr>
 
-                {%endfor%}
+                <tbody>  
+                            
+                        {% for ingredient in ingredients %}
+                            <tr>
+                                <th scope="col"> {{ingredient}} </th>   
+                                <td scope="col" > {{ingredient.quantity}} </td>     
+                                    {% for perc in perc_ingredients %}
+                                    {% if forloop.counter == forloop.parentloop.counter %}  
+                                    <td> {{perc}}</td>   
+                                    {% endif %}
+                                    {% endfor %}
+
+                            </tr>
+
+                        {%endfor%}
 
 
                 </tbody>
+
             </table>
 
-            <br>           
-            <br>     
-
                     
-            <table class="table" style="width:100%" bgcolor="rgba(239, 127, 0, 0.774)">
+            <table class="table" style="width:100%">
                 <thead>
-                    <caption> Recapitulatif du processus </caption>
+                    <caption> <h2>Recapitulatif du processus </h2></caption>
 
                 </thead>
 
     
                 <tbody>  
-                    
-                {% for step in process %}
-                    <tr>
-                        <th> {{step.step}} </th>      
-                    </tr>
+                            
+                            <tr>
+                                <th scope="col"> <h4> Préparation <h4/> </th>                                 
+                            </tr>
+                        {% for step in process %}
+                            <tr>
+                                <th scope="col"> {{step.step}} </th>      
+                            </tr>
 
-                {%endfor%}
+                        {%endfor%}
+                            
+                        <tr>
+                            <th scope="col"> <h4> Cuisson <h4/> </th>                                 
+                        </tr>
+                        {% for step in cooking %}
+                            <tr>
+                                <th scope="col"> {{step.step}} </th>      
+                            </tr>
+
+                        {%endfor%}
 
 
                 </tbody>
+                
             </table>
 
 
-            <table class="table" style="width:100%" bgcolor="rgba(239, 127, 0, 0.774)">
+            <table class="table" style="width:100%" >
                 <thead>
-                    <caption> Nutriscore </caption>
+                    <caption> <h2>Nutriscore</h2> </caption>
 
                 </thead>
 

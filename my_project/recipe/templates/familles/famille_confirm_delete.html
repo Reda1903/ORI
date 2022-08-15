@@ -3,6 +3,12 @@
 <!-- -->
 {% load crispy_forms_tags %}
 <!-- -->
+
+{%block back%} 
+{%url "recipe-home" %}
+{%endblock back%}
+
+
 {% block content %}
 <div class="container">
   <form method="POST">
@@ -17,7 +23,7 @@
     </div>
   </form>
   <div class="border-top pt-3">
-    <a class="text-muted" href="{% url 'ingredients-recipe' %}"
+    <a class="text-muted" href="{% url 'familles-recipe' %}"
       >Cancel</a
     >
   </div>

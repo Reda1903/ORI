@@ -3,6 +3,13 @@
 <!-- -->
 {% load crispy_forms_tags %}
 <!-- -->
+
+{%block back%} 
+{%url "recettes" %}
+{%endblock back%}
+
+
+
 {% block content %}
 <div class="container">
   <form method="POST">

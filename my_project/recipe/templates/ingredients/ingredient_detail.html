@@ -1,6 +1,10 @@
 {% extends 'recipe/base.html' %}
 
 
+{%block back%} 
+{%url "ingredients-recipe" %}
+{%endblock back%}
+
     {% block content %}
 
 <!-- 
@@ -25,16 +29,17 @@
 -->
 
 
-<div class="container">
+<div class="table-responsive-sm">
                 
 
 
-    <table class="table">
+    <table class="table table-striped table-secondary">
         <thead>
             <tr>
                 <th scope="col"> famille </th>
                 <th scope="col"> ingrédient </th>
                 <th scope="col"> forme </th>
+                <th scope="col"> calories </th>
                 <th scope="col"> sodium </th>
                 <th scope="col"> glucide </th>
 
@@ -121,6 +126,7 @@
                 <td> {{ingredient.forme}} </th>
                 <td> {{ingredient.name}} </td>   
 
+                <th scope="col"> {{ingredient.energie_kJ}} </th>
                 <th scope="col"> {{ingredient.sodium}} </th>
                 <th scope="col"> {{ingredient.glucide}} </th>
 
