@@ -70,7 +70,7 @@ ROOT_URLCONF = 'my_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'Recipe/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -154,6 +154,7 @@ LOGIN_REDIRECT_URL = 'recipe-home'
 LOGIN_URL = 'user-login'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 #activate django heroku
 django_heroku.settings(locals())

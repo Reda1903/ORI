@@ -1,3 +1,4 @@
+from shutil import _ntuple_diskusage
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -7,9 +8,12 @@ from django.urls import reverse
 
 # Create your models here.
 class Recipe(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=500)
     #description = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
+
     #prep_time = models.DurationField()
     #cook_time = models.DurationField()
     #servings = models.IntegerField()
@@ -34,7 +38,7 @@ class Famille(models.Model):
         return reverse("familles-detail", kwargs={"pk": self.pk})
 
 class Forme(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=500)
     famille = models.ForeignKey(Famille, on_delete=models.CASCADE, related_name="forme_famille", null=True)
     def __str__(self):
         return self.name
@@ -45,7 +49,7 @@ class Forme(models.Model):
 class Ingredient(models.Model):
     famille = models.ForeignKey(Famille, on_delete=models.CASCADE, related_name="famille_ingredient", null=True)
     forme = models.ForeignKey(Forme, on_delete=models.CASCADE, related_name="forme_ingredient", null=True, verbose_name='ingrédient')
-    name = models.CharField(max_length=100, verbose_name='forme')
+    name = models.CharField(max_length=500, verbose_name='forme')
     energie_kJ = models.FloatField(null= True)
     energie_kcal = models.FloatField(null= True)
     sodium = models.FloatField(null= True)
@@ -138,7 +142,7 @@ class IngredientRecipe(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="ingredients_recipe")
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name="xyz", null=True)
     #ingredient = models.CharField(max_length=100)
-    quantity = models.FloatField()
+    quantity = models.FloatField(null=True)
     
     
     def __str__(self):  
@@ -153,6 +157,18 @@ class ProcessRecipe(models.Model):
     
     def __str__(self):  
         return self.recipe.title
+
+
+class CookingRecipe(models.Model): 
+    step = models.CharField(max_length=100)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="cooking_recipe")
+
+    #ingredient = models.CharField(max_length=100)
+    
+    
+    def __str__(self):  
+        return self.recipe.title
+
 
 class FamilleTest(models.Model):
     name = models.CharField(max_length=100)

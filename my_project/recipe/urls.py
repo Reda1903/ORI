@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
     path('home', views.home, name="recipe-home"),
     
-    path('recettes/', views.RecipeListView.as_view(), name="recettes-recipe"),
+    path('recettes/', views.recipes_view, name="recettes-recipe"),
     path('recettesadmin/', views.admin_recipe , name="recettes-recipe-admin"),
     path('recettesutilisateur/', views.admin_recipe , name="recettes-recipe-utilisateur"),
     
@@ -15,19 +15,20 @@ urlpatterns = [
     path('recipe/<int:pk>/update', views.update_recipe2, name="recettes-update"),
     path('recipe/<int:pk>/delete', views.RecipeDeleteView.as_view(), name="recettes-delete"),
     
-    path('ingredients/', views.IngredientListView.as_view(), name="ingredients-recipe"),
+    #path('ingredients/', views.IngredientListView.as_view(), name="ingredients-recipe"),
+    path('ingredients/', views.Ingredient_view , name="ingredients-recipe"),
     path('ingredients/<int:pk>', views.IngredientDetailView.as_view(), name="ingredients-detail"),
     path('ingredients/create', views.IngredientCreateView.as_view(), name="ingredients-create"),
     path('ingredients/<int:pk>/update', views.IngredientUpdateView.as_view(), name="ingredients-update"),
     path('ingredients/<int:pk>/delete', views.IngredientDeleteView.as_view(), name="ingredients-delete"),
     
     
-    path('familles/', views.FamilleListView.as_view(), name="familles-recipe"),
+    path('familles/', views.Famille_view, name="familles-recipe"),
     path('familles/<int:pk>', views.FamilleDetailView.as_view(), name="familles-detail"),
     path('familles/create', views.FamilleCreateView.as_view(), name="familles-create"),
     path('familles/<int:pk>/update', views.FamilleUpdateView.as_view(), name="familles-update"),
     path('familles/<int:pk>/delete', views.FamilleDeleteView.as_view(), name="familles-delete"),
-    
+    path('familles-ingredients/<int:pk>', views.Famille_ingredients, name="famille-ingredients"),
     
     path('ingredients/', views.ingredients, name="ingredients-recipe"),
     path('familles/', views.familles, name="familles-recipe"),

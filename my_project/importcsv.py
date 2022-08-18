@@ -39,10 +39,11 @@ for index, row in df.iterrows():
     famille = Famille()
     #print(row['alim_grp_nom_fr'])
     row = row['alim_grp_nom_fr']
-    print(row)
-    if row == "" or row == "nan":
+    #print(row)
+
+    #if row == "" or row == "nan":
         #row = "Non défini"
-      print(row)
+      #print(row)
 
     if row not in names :
       famille.name = row
@@ -59,11 +60,11 @@ for index, row in df.iterrows():
     #print(row['alim_grp_nom_fr'])
     forme.famille = Famille.objects.filter(name = row['alim_grp_nom_fr'])[0]
     row = row['alim_ssgrp_nom_fr']
-    print(row)
+    #print(row)
 
-    if row == "" or row == "nan" or row == "-":
+    #if row == "" or row == "nan" or row == "-":
         #row = "Non défini"
-      print(row)
+      #print(row)
 
 
     if row not in names :
@@ -74,14 +75,17 @@ for index, row in df.iterrows():
 
 for index, row in df.iterrows():
 
+  #if row['alim_grp_nom_fr'] == 'produits céréaliers':
       # create django model
 
     ingredient = Ingredient()
       # Normal Fields ( Non-foreign key fields) adding
 
-    ingredient.name = row['alim_nom_fr']
+    
+    ingredient.name = row['alim_nom_fr'][:70]
+    
     #print(row['alim_grp_nom_fr'])
-    print(row['alim_ssgrp_nom_fr'])
+    #print(row['alim_ssgrp_nom_fr'])
     ingredient.famille = Famille.objects.filter(name = row['alim_grp_nom_fr'])[0]
     ingredient.forme = Forme.objects.filter(name = row['alim_ssgrp_nom_fr'])[0]
     ingredient.energie_kJ = row['Energie. Règlement UE N° 1169/2011 (kJ/100 g)']
