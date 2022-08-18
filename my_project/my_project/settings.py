@@ -34,7 +34,7 @@ if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # During development only
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['135.125.107.100', 'www.ori.paris']
 
 
 # Application definition
