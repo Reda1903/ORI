@@ -12,7 +12,23 @@
         <h2> Détails de la recette </h2>
 
 
+
         <div class="container">
+
+            
+        <div class = "col-sm-2">
+            <table class="table table-striped table-secondary">                    
+
+
+                <div> <h2> Nutriscore  </h2> </div>
+                <div style = 'background-color:{{couleur}}; padding:0%'> 
+
+                    {{nutriscore}} </div>
+
+            </table>
+
+            </div>
+            
             <div class="row">
 
 
@@ -22,7 +38,7 @@
                     <table class="table table-striped table-secondary">
                         <thead>
 
-                            <tr> <h2> Nutrition Facts </h2> </tr>
+                            <tr> <h2> Valeurs Nutritionnelles Moyennes </h2> </tr>
                             <tr>
                                 <th scope="col"> Valeur nutritionnelle </th>
                                 <th scope="col"> 100g </th>
@@ -40,17 +56,17 @@
                             <tr> 
                                 <td> Valeur énergétique </td>         
 
-                                <td> {{total_calorie_kcal}} kcal
+                                <td> {{total_calorie_kcal}} kcal <br>
                                      {{total_calorie}} kJ
                                 </td> 
 
                                 <td> 
-                                    {{total_calorie_kcal_bis}} kcal
+                                    {{total_calorie_kcal_bis}} kcal <br>
                                     {{total_calorie_bis}} kJ
                                 </td>   
                                   
                                 <td> 
-                                    {{total_calorie_kcal_gda}} %
+                                    {{total_calorie_kcal_gda}} % <br>
                                     {{total_calorie_gda}} %   
                                 </td>     
                             </tr>
@@ -69,22 +85,22 @@
                             
                             <tr> 
                                 <td> 
-                                    Glucides
+                                    Glucides<br>
                                     dont sucres
                                 </td>         
 
                                 <td> 
-                                    {{total_glucide}} g
+                                    {{total_glucide}} g <br>
                                     {{total_sucres}} g                                  
                                 </td> 
 
                                 <td> 
-                                    {{total_glucide_bis}} g
+                                    {{total_glucide_bis}} g <br>
                                     {{total_sucres_bis}} g                                  
                                 </td>   
                                   
                                 <td> 
-                                    {{total_glucide_gda}} %
+                                    {{total_glucide_gda}} %<br>
                                     {{total_sucres_gda}} %   
                                 </td>     
                             </tr>
@@ -92,22 +108,22 @@
                             
                             <tr> 
                                 <td> 
-                                    Lipides 
+                                    Lipides <br>
                                     dont saturés
                                 </td>         
 
                                 <td> 
-                                    {{total_lipide}} g
+                                    {{total_lipide}} g <br>
                                     {{total_AGsatures}} g
                                 </td> 
 
                                 <td> 
-                                    {{total_lipide_bis}} g
+                                    {{total_lipide_bis}} g <br>
                                     {{total_AGsatures_bis}} g
                                 </td>   
                                   
                                 <td> 
-                                    {{total_lipide_gda}}  %
+                                    {{total_lipide_gda}}  % <br>
                                     {{total_AGsatures_gda}} %
                                 </td>     
                             </tr>
@@ -695,19 +711,7 @@
 
                 </div>
 
-                <div class = "col-sm-2">
-                <table class="table table-striped table-secondary">                    
-
-
-                    <div> <h2> Nutriscore  </h2> </div>
-                    <div style = 'background-color:{{couleur}}; padding:0%'> 
-
-                        {{nutriscore}} </div>
-
-                </table>
-
-                </div>
-                
+              
                 
 
             </div>
